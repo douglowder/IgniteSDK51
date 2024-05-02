@@ -1,0 +1,14 @@
+diff --git a/node_modules/expo-dev-menu/ios/DevMenuManager.swift b/node_modules/expo-dev-menu/ios/DevMenuManager.swift
+index c9ee4652e3901..df2455372c68d 100644
+--- a/node_modules/expo-dev-menu/ios/DevMenuManager.swift
++++ b/node_modules/expo-dev-menu/ios/DevMenuManager.swift
+@@ -103,7 +103,8 @@ open class DevMenuManager: NSObject {
+         return
+       }
+ 
+-      if bridge.isLoading {
++      // When using the proxy bridge isLoading is always false, so always add the ContentDidAppearNotification observer
++      if bridge.isLoading || bridge.isProxy() {
+         NotificationCenter.default.addObserver(self, selector: #selector(DevMenuManager.autoLaunch), name: DevMenuViewController.ContentDidAppearNotification, object: nil)
+       } else {
+         autoLaunch()
