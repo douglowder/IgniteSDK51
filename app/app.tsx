@@ -101,7 +101,7 @@ function App(props: AppProps) {
   // otherwise, we're ready to render the app
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ErrorBoundary catchErrors={Config.catchErrors} previousError={didFontLoadError ?? undefined}>
+      <ErrorBoundary catchErrors={Config.catchErrors} previousError={undefined}>
         <GestureHandlerRootView style={$container}>
           <AppNavigator
             linking={linking}
