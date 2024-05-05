@@ -73,6 +73,10 @@ function App(props: AppProps) {
 
   const [areFontsLoaded, didFontLoadError] = useFonts(customFontsToLoad)
 
+  if (didFontLoadError) {
+    console.error(didFontLoadError);
+  }
+
   const { rehydrated } = useInitialRootStore(() => {
     // This runs after the root store has been initialized and rehydrated.
 
